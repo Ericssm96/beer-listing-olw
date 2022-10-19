@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeerController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,5 +30,5 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/beers', fn()=>'Testando rota beers')->middleware(['auth']);
+Route::get('/beers', [BeerController::class, 'index'])->middleware(['auth']);
 
