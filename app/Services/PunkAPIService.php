@@ -8,6 +8,6 @@ class PunkAPIService
 {
     public function getBeers()
     {
-        return Http::get('https://api.punkapi.com/v2/beers');
+        return Http::punkapi()->get('/beers')->throw();
     }
 }
