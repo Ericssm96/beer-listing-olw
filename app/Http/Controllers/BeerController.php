@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Services\PunkAPIService;
-use Illuminate\Http\Request;
+use App\Http\Requests\{BeerRequest};
 
 class BeerController extends Controller
 {
-    public function index(Request $request)
+    public function index(BeerRequest $request, PunkAPIService $service)
     {
-        $service = new PunkAPIService();
-        return $service->getBeers();
+        $params = $request->all();
+        return $service->getBeers(...$params);
     }
 }
