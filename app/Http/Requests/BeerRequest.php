@@ -13,7 +13,7 @@ class BeerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class BeerRequest extends FormRequest
             'beer_name' => 'nullable|string',
             'malt' => 'nullable|string',
             'food' => 'nullable|string',
-            'ibu_gp' => 'nullable|integer'
+            'ibu_gt' => 'nullable|integer'
         ];
     }
 }

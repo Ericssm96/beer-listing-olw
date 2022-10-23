@@ -15,7 +15,7 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-require __DIR__.'/auth.php';
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -30,5 +30,6 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/beers', [BeerController::class, 'index'])->middleware(['auth']);
+Route::get('/beers', [BeerController::class, 'index'])->middleware(['auth', 'verified']);
 
+require __DIR__.'/auth.php';

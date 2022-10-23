@@ -15,12 +15,7 @@ class PunkAPIService
     {
         $params = array_filter(get_defined_vars());
         return Http::punkapi()
-            ->get('/beers',[
-                'beer_name' => $beer_name,
-                'food' => $food,
-                'malt' => $malt,
-                'ibu_gt' => $ibu_gt,
-            ])
+            ->get('/beers', $params)
             ->throw() // Esse método vai ser responsável por fazer com que uma exceção seja lançada caso algo dê errado
             ->json();
     }
